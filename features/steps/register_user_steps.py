@@ -1,5 +1,4 @@
 from behave import *
-from webdriver_manager.core import driver
 
 from pages.register_user_page import RegisterUser
 
@@ -69,15 +68,3 @@ def step_imp(context):
 @when ("I click 'continue' button")
 def step_imp(context):
     context.page.click(str(context.config.userdata["continue_button"]))
-
-@then("It should be visible the message: 'Logged in as Ionut'")
-def step_imp(context):
-    assert str(context.page.get_text(str(context.config.userdata['user_logged_text'])) == f"{str(context.config.userdata['user_logged_text'])}")
-
-@when ("I click 'delete account' button")
-def step_imp(context):
-    context.page.click(str(context.config.userdata["delete_button"]))
-
-@then ("I should receive the message: 'ACCOUNT DELETED!'")
-def step_imp(context):
-    assert str(context.page.get_text(str(context.config.userdata['account_deleted_text'])) == f"{str(context.config.userdata['account_deleted_text'])}")

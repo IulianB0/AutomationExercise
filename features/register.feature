@@ -14,18 +14,21 @@ Feature: Register User to Website
     And I click 'create account' button
     Then I should receive the message: 'ACCOUNT CREATED!'
     When I click 'continue' button
-    Then It should be visible the message: 'Logged in as Ionut'
+
+  Scenario: Delete User
+    Given I am logged in the home page
+    Then It should be visible the message: 'Logged in as'
     When I click 'delete account' button
     Then I should receive the message: 'ACCOUNT DELETED!'
-#
-#  Scenario: Successful Verification User Registration with existing email
-#    Given I am on the home page
-#    When I click on the 'signup' button
-#    Then It should be visible the message: 'New User Signup'
-#    When I fill with registered name and registered email address
-#    And I click the 'signup' button
-#    Then I should receive the error: 'Email Address already exist!
-#
+
+  Scenario: Successful Verification User Registration with existing email
+    Given I am on the main page
+    When I click on the login button
+    Then It should be visible the message: New User Signup
+    When I fill with registered name and registered email address
+    And I click the signup button
+    Then I should receive the error: 'Email Address already exist!
+
 #  Scenario: Successful Place the Order while Registering the User at Checkout
 #    Given I am on the home page
 #    When I add products to cart
